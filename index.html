@@ -1,0 +1,229 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="reveal.js/css/theme/white.css">
+    <link rel="stylesheet" href="ember.css">
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <!-- Title -->
+            <section>
+                <h2>Exploring the Transmission Dynamics of Canine Influenza
+                    Virus</h2>
+                <h6><font color="maroon">Will Knez  |  Wearing Lab  |  Nov 12, 2021</font></h6>
+                <img src="img/virus-green.png" style="border: 0;width: 300px;height: 300px">
+            </section>
+            
+            <!-- Background -->
+            <section>
+                <section>
+                    <h2>Background</h2>
+                </section>
+                <section>
+                    <h3>Human Pandemics from Host Range Shifts</h3>
+                    <ul>
+                        <li>SARS (palm civets, 2003)</li>
+                        <li>H1N1 (swine, 2009)</li>
+                        <li>MERs-COV (bats and camels, 2014)</li>
+                        <li>COVID (more bats, 2019)</li>
+                    </ul>
+                </section>
+                <section>
+                    <figure>
+                        <img class="r-stretch" src="img/dog-treats.jpg">
+                        <figcaption style="font-size:0.85em">
+                            <p style="font-weight:bold">
+                            Demand for dog treats per household by geographic
+                            area.  Courtesy of <a
+                                href="https://www.esri.com/news/arcwatch/0412/do-you-live-in-canine-country.html">esri
+                                News</a>
+                            </p>
+                    </figure>
+                </section>
+                <section>
+                    <figure>
+                    <img src="img/tucker.png" style="border: 0;width: 400px;height: 500px">
+                    <figcaption style="font-size:0.85em">
+                        <p style="font-weight:bold">
+                        Meet Tucker
+                        </p>
+                    </figcaption>
+                    </figure>
+                </section>
+            </section>
+            
+            <!-- Methods -->
+            <section>
+                <section>
+                    <h2>Methods</h2>
+                </section>
+                <section>
+                    <h3>Phylogenetic Analysis</h3>
+                    <ul>
+                        <li>HA1, M, and NP gene sequences</li>
+                        <li>Uses data from 12 states</li>
+                        <li>Clustering analysis (Association and Parsimony Index)</li>
+                        <li>Estimates national \(R_e\) using MCMC model</li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>Epidemic Model</h3>
+                    \[\begin{aligned}
+                        \dot{S} &amp; = \mu - (\lambda + \alpha + \delta)S\\
+                        \dot{I} &amp; = \lambda S - (\gamma + \delta)I\\
+                        \dot{R} &amp; = \gamma(I + W) - \delta R\\
+                        \dot{V} &amp; = \alpha S - (\epsilon \lambda + \delta)V\\
+                        \dot{W} &amp; = \epsilon \lambda V - (\gamma +
+                        \delta)W\\
+                        \end{aligned} \]
+                    \[\begin{aligned}
+                        \lambda &amp; = \frac{\beta(I + \omega W)}{N}
+                        \end{aligned} \]
+                </section>
+                <section>
+                    <h3>Control Strategies</h3>
+                    <ul>
+                        <li>Representative "vaccination" program</li>
+                        <li>Models viral load, not symptoms</li>
+                        <li>Not 100% efficacious</li>
+                        <li>Reduces disease spread proportional to vaccine
+                            coverage</li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>Metapopulation Model</h3>
+                    <ul>
+                        <li>Expands single-shelter to a network</li>
+                        <li>Estimates parameters from data</li>
+                        <li>Shelters vary by size, intake rate, and output rate</li>
+                    </ul>
+                </section>
+            </section>
+            
+            <!-- Results -->
+            <section>
+                <section>
+                    <h2>Results</h2>
+                </section>
+                <section>
+                    <figure>
+                    <img class="r-stretch" src="img/figure1.png">
+                    <figcaption style="font-size:0.5em">
+                        <p style="font-weight:bold">
+                        Figure 1. Phylogenetic trees of HA1, NP and M sequences
+                        for EIV (black) and CIV (colors).
+                        <a
+                            href="https://journals.plos.org/plospathogens/article?id=10.1371/journal.ppat.1004455#s5">Dalziel
+                            et al. (2014)</a>
+                        </p>
+                    </figcaption>
+                    </figure>
+                </section>
+                <section>
+                    <figure>
+                        <img class="r-stretch" src="img/civ_2015_present.png">
+                    <figcaption style="font-size:0.5em">
+                        <p style="font-weight:bold">
+                        H3N2 test results from March 2015 to present.  Courtesy of <a
+                            href="https://www.vet.cornell.edu/animal-health-diagnostic-center/veterinary-support/disease-information/canine-influenza-h3n2-updates">CIV
+                            Surveillance Network (Cornell)</a>
+                        </p>
+                    </figcaption>
+                    </figure>
+                </section>
+                <section>
+                    <figure>
+                        <img src="img/figure2.png" class="r-stretch">
+                    <figcaption style="font-size:0.5em">
+                        <p style="font-weight:bold">
+                        Figure 2. Demography of dogs in US animal shelters.
+                        <a
+                            href="https://journals.plos.org/plospathogens/article?id=10.1371/journal.ppat.1004455#s5">Dalziel
+                            et al. (2014)</a>
+                        </p>
+                    </figcaption>
+                    </figure>
+                </section>
+                <section>
+                    <figure>
+                    <img class="r-stretch" src="img/figure3.png">
+                    <figcaption style="font-size:0.5em">
+                        <p style="font-weight:bold">
+                        Figure 3. Seroprevalence, R0 and Re for CIV, estimated from
+                        host demographic data, seroprevalence data, and molecular
+                        data.
+                        <a
+                            href="https://journals.plos.org/plospathogens/article?id=10.1371/journal.ppat.1004455#s5">Dalziel
+                            et al. (2014)</a>
+                        </p>
+                    </figcaption>
+                    </figure>
+                </section>
+                <section>
+                    <figure>
+                    <img class="r-stretch" src="img/r0.png">
+                    </figure>
+                </section>
+                <section>
+                    <figure>
+                    <img class="r-stretch" src="img/figure4.png">
+                    <figcaption style="font-size:0.5em">
+                        <p style="font-weight:bold">
+                        Figure 4. Demographics, persistence, spread rate and possible eradication of CIV.
+                        <a
+                            href="https://journals.plos.org/plospathogens/article?id=10.1371/journal.ppat.1004455#s5">Dalziel
+                            et al. (2014)</a>
+                        </p>
+                    </figcaption>
+                    </figure>
+                </section>
+                <section>
+                    <figure>
+                    <img class="r-stretch" src="img/figure5.png">
+                    <figcaption style="font-size:0.5em">
+                        <p style="font-weight:bold">
+                        Figure 5. Predicted performance of a control program administered to dogs on arrival in US animal shelters.
+                        <a
+                            href="https://journals.plos.org/plospathogens/article?id=10.1371/journal.ppat.1004455#s5">Dalziel
+                            et al. (2014)</a>
+                        </p>
+                    </figcaption>
+                    </figure>
+                </section>
+                <section>
+                    <figure>
+                    <img class="r-stretch" src="img/figure6.png">
+                    <figcaption style="font-size:0.5em">
+                        <p style="font-weight:bold">
+                        Figure 6. A simulation of CIV invasion over multiple shelters, starting with an infection in a single large shelter.
+                        <a
+                            href="https://journals.plos.org/plospathogens/article?id=10.1371/journal.ppat.1004455#s5">Dalziel
+                            et al. (2014)</a>
+                        </p>
+                    </figcaption>
+                    </figure>
+                </section>
+            </section>
+        </div>
+    </div>
+    
+    <!-- Core Library -->
+    <script src="reveal.js/js/reveal.js"></script>
+
+    <!-- Plugins -->
+    <script src="reveal.js/plugin/math/math.js"></script>
+    <script src="reveal.js/plugin/zoom-js/zoom.js"></script>
+
+    <!-- Configuration -->
+    <script>
+        Reveal.initialize({
+            zoomKey: 'ctrl',
+            plugins: [ RevealMath.KaTeX ]
+        });
+    </script>
+</body>
+
+</html>
